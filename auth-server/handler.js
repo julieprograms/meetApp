@@ -39,7 +39,7 @@ const oAuth2Client = new google.auth.OAuth2(
  */
 
 
-module.exports.getAuthURl = async () => {
+module.exports.getAuthURL = async () => {
 
   /**
    * scopes array passed to the scope option. 
