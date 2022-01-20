@@ -6,7 +6,7 @@ const calendar = google.calendar("v3");
  * SCOPES allows to set access levels; set for read-only because of missing access rights to update the calendar
  */
 
-const SCOPES = ["https//www.googleapis.com/auth/calendar.readonly"];
+const SCOPES = ["https://www.googleapis.com/auth/calendar.readonly"];
 
 /**
  * Credentials are the values required to get access to the calendar;
@@ -61,4 +61,46 @@ module.exports.getAuthURL = async () => {
       authUrl: authUrl,
     }),
   };
+};
+
+module.exports.getAccessToken = async (event) => {
+  const oAuth2Client = new google.auth.OAuth2(
+    client_id,
+    client_secret,
+    redirect_uris[0]
+  );
+  //decode authorization code extracted from the url query
+  const code = decodeURIComponent(`${event.pathParameters.code}`);
+
+  return new Promise((resolve, reject) => {
+    /**
+     * exchange authorization code for access token with a callback after the exchange
+     * the callback in an arrow function with the results as parameters: err and token
+     */
+
+    oAuth2Client.getToken(code, (err, token) => {
+      if(err) {
+        return reject(err);
+      }
+      return resolve(token);
+    });
+  })
+      .then((token) => {
+        //respond with oauth token
+        return {
+          statusCode: 200,
+          headers: {
+            "Access-Control-Allow-Origin": "*",
+          },
+          body: JSON.stringify(token),
+        };
+      })
+      .catch((err) => {
+        //handle error
+        console.error(err);
+        return {
+          statusCode: 500,
+          body: JSON.stringify(err),
+        };
+      });
 };
