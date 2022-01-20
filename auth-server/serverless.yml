@@ -20,7 +20,7 @@ service: auth-server
 # Check out our docs for more details
 
 
-# frameworkVersion: '2'
+frameworkVersion: '2'
 
 provider:
   name: aws
@@ -28,7 +28,7 @@ provider:
   region: eu-central-1
   timeout: 60
 
-  # lambdaHashingVersion: 20201221
+  lambdaHashingVersion: 20201221
 
 
 # you can overwrite defaults here
@@ -65,11 +65,11 @@ provider:
 #    - include-me.js
 #    - include-me-dir/**
 
-environment:
-  CLIENT_ID: ${file(config.json):CLIENT_ID}
-  CLIENT_SECRET: ${file(config.json):CLIENT_SECRET}
-  PROJECT_ID: ${file(config.json):PROJECT_ID}
-  CALENDAR_ID: ${file(config.json):CALENDAR_ID}
+  environment:
+    CLIENT_ID: ${file(config.json):CLIENT_ID}
+    CLIENT_SECRET: ${file(config.json):CLIENT_SECRET}
+    PROJECT_ID: ${file(config.json):PROJECT_ID}
+    CALENDAR_ID: ${file(config.json):CALENDAR_ID}
 
 
 
