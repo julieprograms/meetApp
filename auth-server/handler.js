@@ -148,9 +148,6 @@ module.exports.getCalendarEvents = event => {
     .catch(err => {
       return {
         statusCode: 500,
-        headers: {
-          "Access-Control-Allow-Origin": "*",
-        },
         body: JSON.stringify(err),
       };
       });
