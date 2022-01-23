@@ -41,6 +41,14 @@ describe('<EventList /> component', () => {
         expect(EventWrapper.state('collapsed')).toBe(false);
     });
 
+    test('hide details when button is clicked', () => {
+        EventWrapper.setState({
+            collapsed: false
+        });
+        EventWrapper.find('.hide-details').simulate('click');
+        expect(EventWrapper.state('collapsed')).toBe(true);
+    });
+
 
 
 

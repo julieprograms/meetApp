@@ -23,11 +23,12 @@ export class Event extends Component {
         <p className='dateTime'>{event.dateTime}</p>
         <p className='timeZone'>{event.timeZone}</p>
         <p className='location'>@{event.summary} | {event.location}</p>
-        <button className='show-details'
+        if(collapsed === true){
+            <button className='show-details'
         onClick={this.handleClick}>show Details</button>
-        
-        if(collapsed == false){
-
+        }
+        else{<button className='hide-details'
+        onClick={this.handleClick}>hide Details</button>
         }
     </div>;  
     }
