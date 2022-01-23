@@ -6,7 +6,7 @@ import { mockData } from '../mock-data';
 describe('<EventList /> component', () => {
     let EventWrapper;
     beforeAll(() => {
-        EventWrapper = shallow(<Event events={mockData} />);
+        EventWrapper = shallow(<Event event={mockData} />);
     });
 
     test('renders event', () => {
@@ -22,11 +22,23 @@ describe('<EventList /> component', () => {
     });
 
     test('render timezone', () => {
-        expect(EventWrapper.find('.timezone')).toHaveLength(1);
+        expect(EventWrapper.find('.timeZone')).toHaveLength(1);
     });
 
     test('render location', () => {
         expect(EventWrapper.find('.location')).toHaveLength(1);
+    });
+
+    test('render show details button', () => {
+        expect(EventWrapper.find('.show-details')).toHaveLength(1);
+    });
+
+    test('open details when button is clicked', () => {
+        EventWrapper.setState({
+            collapsed: true
+        });
+        EventWrapper.find('.show-details').simulate('click');
+        expect(EventWrapper.state('collapsed')).toBe(false);
     });
 
 
