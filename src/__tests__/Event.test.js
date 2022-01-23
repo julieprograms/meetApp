@@ -13,6 +13,22 @@ describe('<EventList /> component', () => {
         expect(EventWrapper.find('.event')).toHaveLength(1);
     });
 
+    test('render summary', () => {
+        expect(EventWrapper.find('.summary')).toHaveLength(1);
+    });
+
+    test('render dateTime', () => {
+        expect(EventWrapper.find('.dateTime')).toHaveLength(1);
+    });
+
+    test('render timezone', () => {
+        expect(EventWrapper.find('.timezone')).toHaveLength(1);
+    });
+
+    test('render location', () => {
+        expect(EventWrapper.find('.location')).toHaveLength(1);
+    });
+
 
 
 
