@@ -49,6 +49,14 @@ describe('<EventList /> component', () => {
         expect(EventWrapper.state('collapsed')).toBe(true);
     });
 
+    test('render htmlLink', () => {
+        expect(EventWrapper.find('.htmlLink')).toHaveLength(1);
+    });
+
+    test('render description', () => {
+        expect(EventWrapper.find('.description')).toHaveLength(1);
+    });
+
 
 
 

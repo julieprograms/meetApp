@@ -27,8 +27,12 @@ export class Event extends Component {
             <button className='show-details'
         onClick={this.handleClick}>show Details</button>
         }
-        else{<button className='hide-details'
-        onClick={this.handleClick}>hide Details</button>
+        else{
+            <div className="details-view">
+            <link className='htmlLink'>{event.htmlLink}</link>
+            <p className='description'>{event.description}</p>
+            <button className='hide-details'
+        onClick={this.handleClick}>hide Details</button></div>
         }
     </div>;  
     }
