@@ -35,15 +35,15 @@ export class CitySearch extends Component {
         onChange={this.handleInputChanged}
         onFocus={() => { this.setState({ showSuggestions: true }) }}
         />
-        <ul className="suggestions">
-            style={this.state.showSuggestions ? {}: { display: 'none'}}
+        <ul className="suggestions" style={this.state.showSuggestions ? {}: { display: 'none'}}>
+            
             {this.state.suggestions.map((suggestion) => (
                 <li 
                 key={suggestion}
                 onClick={() => this.handleItemClicked(suggestion)}
                 >{suggestion}</li>
             ))}
-            <li key="all" onClick={() => this.handleItemClicked("all")}><b>See all cities</b></li>
+            <li onClick={() => this.handleItemClicked("all")}><b>See all cities</b></li>
         </ul>
         </div>  
         );
