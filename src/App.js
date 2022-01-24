@@ -5,6 +5,8 @@ import { CitySearch } from './CitySearch';
 import { NumberOfEvents } from './NumberOfEvents';
 import { extractLocations, getEvents } from './api';
 
+import '/nprogress.css';
+
 export class App extends Component {
   
   state = { 
