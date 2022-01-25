@@ -5,8 +5,9 @@ import { mockData } from '../mock-data';
 
 describe('<EventList /> component', () => {
     let EventWrapper;
+
     beforeAll(() => {
-        EventWrapper = shallow(<Event event={mockData} />);
+        EventWrapper = shallow(<Event event={mockData[1]} />);
     });
 
     test('renders event', () => {
@@ -15,14 +16,6 @@ describe('<EventList /> component', () => {
 
     test('render summary', () => {
         expect(EventWrapper.find('.summary')).toHaveLength(1);
-    });
-
-    test('render dateTime', () => {
-        expect(EventWrapper.find('.dateTime')).toHaveLength(1);
-    });
-
-    test('render timezone', () => {
-        expect(EventWrapper.find('.timeZone')).toHaveLength(1);
     });
 
     test('render location', () => {
@@ -47,14 +40,6 @@ describe('<EventList /> component', () => {
         });
         EventWrapper.find('.hide-details').simulate('click');
         expect(EventWrapper.state('collapsed')).toBe(true);
-    });
-
-    test('render htmlLink', () => {
-        expect(EventWrapper.find('.htmlLink')).toHaveLength(1);
-    });
-
-    test('render description', () => {
-        expect(EventWrapper.find('.description')).toHaveLength(1);
     });
 
 

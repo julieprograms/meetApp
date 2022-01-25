@@ -4,8 +4,11 @@ import {NumberOfEvents} from '../NumberOfEvents';
 
 describe('<NumberOfEvents /> component', () => {
     let NumberOfEventsWrapper;
+    let spy; 
+
     beforeAll(() => {
-        NumberOfEventsWrapper = shallow(<NumberOfEvents/>);
+        spy = jest.spyOn({mockUpdateNumberOfEvents: ()=>{}}, "mockUpdateNumberOfEvents");
+        NumberOfEventsWrapper = shallow(<NumberOfEvents numberOfEvents={32} updateNumberOfEvents={ spy }/>);
     });
 
     test('render text input', () => {
@@ -13,14 +16,13 @@ describe('<NumberOfEvents /> component', () => {
     });
 
     test('render text input correctly', () => {
-        const numberOfEvents = NumberOfEventsWrapper.state('numberOfEvents');
-        expect(NumberOfEventsWrapper.find('.number').prop('value')).toBe(numberOfEvents);
+        expect(NumberOfEventsWrapper.find('.number').prop('value')).toBe(32);
     });
 
     test('change state when text input changes', () => {
         const numberOfEventObject = { target: { value: '30'}};
         NumberOfEventsWrapper.find('.number').simulate('change', numberOfEventObject);
-        expect(NumberOfEventsWrapper.state('numberOfEvents')).toBe('30');
+        expect(spy).toHaveBeenCalled();
     });
 
 
