@@ -35,7 +35,7 @@ export class Event extends Component {
             <p className='description'>{event.description}</p>
            </div>
             )}
-                <button className={`${collapsed ? "show" : "hide"}-details`}
+                <button id='details-btn' className={`${collapsed ? "show" : "hide"}-details`}
         onClick={this.handleClick}>{collapsed ? "Show Details" : "Hide-Details"}</button>
         
     </div> 
