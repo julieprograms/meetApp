@@ -52,8 +52,19 @@ export class App extends Component {
 
   updateNumberOfEvents = async (e) => {
     const newNumber = e.target.value ? parseInt(e.target.value) : 32;
-    await this.setState({ numberOfEvents: newNumber });
-    this.updateEvents(this.state.currentLocation, this.state.numberOfEvents);
+
+    if(newNumber < 1 || newNumber > 32){
+      await this.setState({ 
+        numberOfEvents: newNumber,
+      errorText: 'Please choose a number between 0 and 32' 
+    });
+    } else {
+      await this.setState({
+        errorText:'',
+        numberOfEvents: newNumber
+      });
+      this.updateEvents(this.state.currentLocation, this.state.numberOfEvents);
+    } 
   };
 
   
@@ -66,7 +77,8 @@ export class App extends Component {
       updateEvents={this.updateEvents}/>
       <NumberOfEvents 
       numberOfEvents={this.state.numberOfEvents}
-      updateNumberOfEvents={this.updateNumberOfEvents}/>
+      updateNumberOfEvents={this.updateNumberOfEvents}
+      errorText ={this.state.errorText}/>
       <EventList events={this.state.events}/>
       
     </div>
