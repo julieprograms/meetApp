@@ -6,6 +6,9 @@
 
 .App * {
   box-sizing: border-box;
+  grid-row: 1fr 1fr;
+  grid-column: 1fr 4fr 1fr ;
+  max-width: 100%;
 }
 
 ul {
@@ -34,6 +37,10 @@ input[type="number"] {
   line-height: 20px;
   align-self: center;
   height: 38px;
+  min-width: 20rem;
+  max-width: 50rem;
+  margin-top: 2%;
+  margin-bottom: 2%;
 }
 
 .city {
