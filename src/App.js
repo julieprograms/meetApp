@@ -2,6 +2,7 @@ import React, {Component} from 'react';
 import './App.css';
 import './nprogress.css';
 import { EventList } from './EventList';
+import { EventGenre } from './EventGenre';
 import { CitySearch } from './CitySearch';
 import { NumberOfEvents } from './NumberOfEvents';
 import { extractLocations, getEvents } from './api';
@@ -18,7 +19,8 @@ export class App extends Component {
     events: [],
     locations: [],
     numberOfEvents: 32,
-    currentLocation: "all"
+    currentLocation: "all",
+    warningText: ''
   };
   
   componentDidMount() {
@@ -98,7 +100,9 @@ export class App extends Component {
 <h4>Events in each city</h4>
 
 <div className="chart-2">
-              <h4>Events in Each City</h4>
+<div className="data-vis-wrapper">
+            <EventGenre events={this.state.events} />
+              <h4>Events in each city</h4>
               <ResponsiveContainer height={400} >
                 <ScatterChart margin={{ top: 20, right: 20, bottom: 20, left: 20 }} >
                   <CartesianGrid />
@@ -109,7 +113,7 @@ export class App extends Component {
                 </ScatterChart>
               </ResponsiveContainer>
             </div>
-
+</div>
       <EventList events={this.state.events}/>
       
     </div>
