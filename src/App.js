@@ -97,12 +97,11 @@ export class App extends Component {
       updateNumberOfEvents={this.updateNumberOfEvents}
       errorText ={this.state.errorText}/>
 
-<h4>Events in each city</h4>
-
 <div className="chart-2">
 <div className="data-vis-wrapper">
+  
             <EventGenre events={this.state.events} />
-              <h4>Events in each city</h4>
+              
               <ResponsiveContainer height={400} >
                 <ScatterChart margin={{ top: 20, right: 20, bottom: 20, left: 20 }} >
                   <CartesianGrid />
@@ -113,7 +112,7 @@ export class App extends Component {
                 </ScatterChart>
               </ResponsiveContainer>
             </div>
-</div>
+</div><h2 className="events-city-header">Events in each city</h2>
       <EventList events={this.state.events}/>
       
     </div>

@@ -2,29 +2,28 @@
 .App {
   text-align: center;
   padding: 2% 5%;
+  background-color: rgba(179, 238, 248, 0.13);
 }
 
 .App * {
   box-sizing: border-box;
-  grid-row: 1fr 1fr;
-  grid-column: 1fr 4fr 1fr ;
   max-width: 100%;
 }
 
 ul {
-  padding: 0;
   list-style: none;
 }
 
 p {
-  margin: 5px 0;
+  padding-top: 2%;
+  padding-bottom: 2%;
 }
 
 .display-none {
   display: none;
 }
 .showSuggestions {
-  display: block;
+  display: inline-block;
 }
 
 input[type="text"],
@@ -37,8 +36,8 @@ input[type="number"] {
   line-height: 20px;
   align-self: center;
   height: 38px;
-  min-width: 20rem;
-  max-width: 50rem;
+  min-width: 20em;
+  max-width: 50em;
   margin-top: 2%;
   margin-bottom: 2%;
 }
@@ -54,6 +53,7 @@ input[type="number"] {
   max-width: 300px;
   margin: auto;
   position: relative;
+
 }
 
 .suggestions {
@@ -65,6 +65,7 @@ input[type="number"] {
   top: 43px;
   font-size: 14px;
   box-shadow: 10px 10px 16px -12px rgba(0, 0, 0, 0.75);
+
 }
 
 .suggestions > li {
@@ -72,6 +73,8 @@ input[type="number"] {
   padding: 8px 6px 8px 10px;
   background-color: #eee;
   cursor: default;
+
+
 }
 
 .suggestions > li:last-child {
@@ -83,24 +86,6 @@ input[type="number"] {
   background-color: #bcdcdb;
 }
 
-.event {
-  padding: 10px 10px 35px;
-  margin-bottom: 10px;
-  text-align: left;
-  border: 1px solid #ccc;
-  border-radius: 4px;
-  position: relative;
-}
-
-.details-btn {
-  position: absolute;
-  right: 5px;
-  bottom: 5px;
-  padding: 5px 8px;
-  border-radius: 4px;
-  outline: none;
-  cursor: pointer;
-}
 
 .name {
   font-size: 18px;
@@ -136,7 +121,6 @@ input[type="number"] {
 }
 
 .Alert {
-  position: fixed;
   top: 20px;
 }
 
@@ -147,6 +131,7 @@ input[type="number"] {
 }
 .data-vis-wrapper .recharts-responsive-container {
   min-width: 100%;
+  max-width: 100%;
   display: flex;
 }
 .recharts-surface {
@@ -205,6 +190,10 @@ input[type="number"] {
   font-family: "Roboto";
 }
 
+.events-city-header {
+  color: rgba(6, 81, 143, 0.719);
+}
+
 
 
 @media only screen and (min-width: 992px) {
@@ -218,3 +207,4 @@ input[type="number"] {
     margin: 0 auto;
   }
 }
+
