@@ -75,7 +75,7 @@ export class App extends Component {
     const {locations, events} = this.state;
     const data = locations.map((location)=>{
       const number = events.filter((event) => event.location === location).length
-      const city = location.split(', ').shift()
+      const city = location.split(/[,|-]+/).shift();
       return {city, number};
     })
     return data;
@@ -97,20 +97,18 @@ export class App extends Component {
 
 <h4>Events in each city</h4>
 
-<ResponsiveContainer height={400} >
-          <ScatterChart margin={{ top: 20, right: 20, bottom: 20, left: 20 }}>
-            <CartesianGrid />
-            <XAxis type="category" dataKey="city" name="city" />
-            <YAxis
-              allowDecimals={false}
-              type="number"
-              dataKey="number"
-              name="number of events"
-            />
-            <Tooltip cursor={{ strokeDasharray: "3 3" }} />
-            <Scatter data={this.getData()} fill="#8884d8" />
-          </ScatterChart>
-        </ResponsiveContainer>
+<div className="chart-2">
+              <h4>Events in Each City</h4>
+              <ResponsiveContainer height={400} >
+                <ScatterChart margin={{ top: 20, right: 20, bottom: 20, left: 20 }} >
+                  <CartesianGrid />
+                  <XAxis tick={{ fill: "#000000" }} type="category" dataKey="city" name="city" />
+                  <YAxis allowDecimals={false} tick={{ fill: "#000000" }} type="number" dataKey="number" name="number of events" />
+                  <Tooltip cursor={{ strokeDasharray: '3 3' }} />
+                  <Scatter data={this.getData()} fill="#1D4355" />
+                </ScatterChart>
+              </ResponsiveContainer>
+            </div>
 
       <EventList events={this.state.events}/>
       
