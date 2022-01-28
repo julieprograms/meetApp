@@ -1,24 +1,11 @@
 .WelcomeScreen {
     position: fixed;
-    width: 100%;
-    height: 100%;
-    top: 0;
-    background: url("../src/images/woods-background.jpg");
-    background-size: cover;
-    background-position: center;
-    background-attachment: fixed;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
+width: 100%;
+height: 100%;
+top: 0;
+background: white;
   }
   
-  @font-face {
-    font-family: 'Comme-Light';
-    src: url('./images/comme.extralight.ttf');
-    font-weight: normal;
-    font-style: normal;
-  }
   
   body, input, button {
     font-family: 'Comme-Light';
@@ -76,15 +63,3 @@
     text-align: center;
   }
   
-  .WelcomeScreen a {
-    color: #1D4355;
-    font-weight: bolder;
-  }
-  
-  .welcome_logo {
-    margin: 10px 20px 10px 20px;
-  }
-  
-  .welcome_message {
-    margin: 0 10px 0 10px;
-  }
