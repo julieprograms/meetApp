@@ -7,9 +7,7 @@ import { CitySearch } from './CitySearch';
 import { NumberOfEvents } from './NumberOfEvents';
 import { extractLocations, getEvents } from './api';
 import { WarningAlert } from './Alert';
-import {
-  ScatterChart, Scatter, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer
-} from 'recharts';
+import { ScatterChart, Scatter, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer } from 'recharts';
 
 
 
@@ -85,37 +83,45 @@ export class App extends Component {
 
   render () {
     return (
-    <div className="App">
-      <h1>Meet App</h1>
-        <h4>Choose your nearest city</h4>
-      { !navigator.onLine ? (<WarningAlert text='You are in offline mode!' />) : (<WarningAlert text=' ' />)}
-      <CitySearch 
-      locations={this.state.locations} 
-      updateEvents={this.updateEvents}/>
-      <NumberOfEvents 
-      numberOfEvents={this.state.numberOfEvents}
-      updateNumberOfEvents={this.updateNumberOfEvents}
-      errorText ={this.state.errorText}/>
-
-<h4>Events in each city</h4>
-
-<div className="chart-2">
-<div className="data-vis-wrapper">
-            <EventGenre events={this.state.events} />
-              <h4>Events in each city</h4>
-              <ResponsiveContainer height={400} >
-                <ScatterChart margin={{ top: 20, right: 20, bottom: 20, left: 20 }} >
-                  <CartesianGrid />
-                  <XAxis tick={{ fill: "#000000" }} type="category" dataKey="city" name="city" />
-                  <YAxis allowDecimals={false} tick={{ fill: "#000000" }} type="number" dataKey="number" name="number of events" />
-                  <Tooltip cursor={{ strokeDasharray: '3 3' }} />
-                  <Scatter data={this.getData()} fill="#1D4355" />
-                </ScatterChart>
-              </ResponsiveContainer>
-            </div>
-</div>
-      <EventList events={this.state.events}/>
-      
+      <div className="App">
+        <h1 className="page-title">Meet App</h1>
+        { !navigator.onLine ? (<WarningAlert text='You are in offline mode!' />) : (<WarningAlert text=' ' />)}
+        
+  <h3 className="chart-header">Breakdown of future events</h3>
+  
+  <div className="chart-2">
+  <div className="data-vis-wrapper">
+    
+              <EventGenre events={this.state.events} />
+         
+                <ResponsiveContainer height={400} >
+                  <ScatterChart margin={{ top: 20, right: 20, bottom: 20, left: 20 }} >
+                    <CartesianGrid />
+                    <XAxis tick={{ fill: "#000000" }} type="category" dataKey="city" name="city" />
+                    <YAxis allowDecimals={false} tick={{ fill: "#000000" }} type="number" dataKey="number" name="number of events" />
+                    <Tooltip cursor={{ strokeDasharray: '3 3' }} />
+                    <Scatter data={this.getData()} fill="#1D4355" />
+                  </ScatterChart> 
+                </ResponsiveContainer>
+                
+              </div>
+  </div>
+  
+        
+        <CitySearch 
+        locations={this.state.locations} 
+        updateEvents={this.updateEvents}/>
+        
+  
+  
+  <NumberOfEvents 
+        numberOfEvents={this.state.numberOfEvents}
+        updateNumberOfEvents={this.updateNumberOfEvents}
+        errorText ={this.state.errorText}/>
+  
+  
+  
+        <EventList events={this.state.events}/>
     </div>
   );
   }

@@ -44,6 +44,7 @@ export class CitySearch extends Component {
     render() {
         return (
           <div className="CitySearch">
+              <label className="citysearch-label">choose nearest city</label>
               <InfoAlert text={this.state.infoText} />
         <input type="text" className="city" 
         value={this.state.query} 
@@ -58,7 +59,7 @@ export class CitySearch extends Component {
                 onClick={() => this.handleItemClicked(suggestion)}
                 >{suggestion}</li>
             ))}
-            <li onClick={() => this.handleItemClicked("all")}><b>See all cities</b></li>
+            <li onClick={() => this.handleItemClicked("all")}><b className="see-suggestions-input">See all cities</b></li>
         </ul>
         </div>  
         );
