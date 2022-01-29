@@ -15,10 +15,7 @@ ul {
   list-style: none;
 }
 
-p {
-  padding-top: 2%;
-  padding-bottom: 2%;
-}
+
 
 .display-none {
   display: none;
@@ -33,7 +30,7 @@ input[type="number"] {
   border-radius: 4px;
   outline: none;
   border: 1px solid #1D4355;;
-  font-size: 14px;
+  font-size: 12px;
   line-height: 20px;
   align-self: center;
   height: 38px;
@@ -145,7 +142,30 @@ input[type="number"] {
   color: #1D4355;
 }
 
+.chart-header {
+  font-size:35px;
+    color: rgba(6, 81, 143, 0.719);
+    color: #1D4355;
+    margin-bottom: 15%;
+    margin-top: 20%;
+}
+.chart-title {
+  font-size: 14px;
+  color: #1D4355;
+  font-family: 'Roboto', sans-serif;
+  margin-bottom: 5%;
 
+}
+.see-suggestions-input {
+  margin-bottom:2%;
+}
+
+.page-title {
+  font-size:30px;
+  color: #1D4355;
+  margin-bottom:10%;
+  margin-top:5%;
+}
 
 @media only screen and (min-width: 992px) {
   .data-vis-wrapper {
@@ -158,4 +178,6 @@ input[type="number"] {
     margin: 0 auto;
   }
 }
+
+
 

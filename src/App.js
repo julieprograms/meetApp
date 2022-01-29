@@ -101,8 +101,8 @@ export class App extends Component {
     if (this.state.showWelcomeScreen === undefined) return <div className="App" />
     return (
     <div className="App">
-      <h1>Meet App</h1>
-        <h4>Choose your nearest city</h4>
+      <h1 className="page-title">Meet App</h1>
+        <h4 className="chart-title">Choose your nearest city</h4>
       { !navigator.onLine ? (<WarningAlert text='You are in offline mode!' />) : (<WarningAlert text=' ' />)}
       <CitySearch 
       locations={this.state.locations} 
@@ -111,12 +111,12 @@ export class App extends Component {
       numberOfEvents={this.state.numberOfEvents}
       updateNumberOfEvents={this.updateNumberOfEvents}
       errorText ={this.state.errorText}/>
-
+<h3 className="chart-header">Breakdown of future events</h3>
 <div className="chart-2">
 <div className="data-vis-wrapper">
   
             <EventGenre events={this.state.events} />
-              
+            <h3 className="chart-title">topic genres</h3> 
               <ResponsiveContainer height={400} >
                 <ScatterChart margin={{ top: 20, right: 20, bottom: 20, left: 20 }} >
                   <CartesianGrid />
@@ -125,6 +125,7 @@ export class App extends Component {
                   <Tooltip cursor={{ strokeDasharray: '3 3' }} />
                   <Scatter data={this.getData()} fill="#1D4355" />
                 </ScatterChart>
+                <h3 className="chart-title">Future events/city</h3>
               </ResponsiveContainer>
             </div>
 </div><h2 className="events-city-header">Events in each city</h2>
