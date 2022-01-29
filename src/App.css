@@ -42,11 +42,6 @@ input[type="number"] {
   margin-bottom: 2%;
 }
 
-input[type="number"] {
-  min-width: 10em;
-  max-width:10em;
-
-}
 
 .city {
   width: 250px;
@@ -148,7 +143,7 @@ input[type="number"] {
 .events-city-header {
   color: rgba(6, 81, 143, 0.719);
   color: #1D4355;
-  margin-bottom: 5%;
+  margin-bottom: 2%;
   font-family: 'Roboto', sans-serif;
 }
 
@@ -158,10 +153,10 @@ input[type="number"] {
     color: #1D4355;
     margin-bottom: 15%;
     margin-top: 20%;
-    font-family: 'Roboto', sans-serif;
+    font-family: 'Rubik', sans-serif;
 }
 .chart-title-wrapper {
-  font-size: 14px;
+  font-size: 16px;
   color: #1D4355;
   font-family: 'Roboto', sans-serif;
 }
@@ -179,9 +174,10 @@ input[type="number"] {
 }
 
 .number-header {
-  font-size:14px;
+  font-size:16px;
   color: #1D4355;
   font-family: 'Roboto', sans-serif;
+  margin-bottom:2%;
 }
 
 .chart-2 {

@@ -102,11 +102,7 @@ export class App extends Component {
     return (
     <div className="App">
       <h1 className="page-title">Meet App</h1>
-        <h4 className="chart-title">Choose your nearest city</h4>
-      { !navigator.onLine ? (<WarningAlert text='You are in offline mode!' />) : (<WarningAlert text=' ' />)}
-      <CitySearch 
-      locations={this.state.locations} 
-      updateEvents={this.updateEvents}/>
+   
       
 <h3 className="chart-header">Breakdown of future events</h3>
 <div className="chart-2">
@@ -126,17 +122,22 @@ export class App extends Component {
               
             </div>
 </div>
-
+<h4 className="chart-title">Choose your nearest city</h4>
+      { !navigator.onLine ? (<WarningAlert text='You are in offline mode!' />) : (<WarningAlert text=' ' />)}
+      <CitySearch 
+      locations={this.state.locations} 
+      updateEvents={this.updateEvents}/>
+      
 
 <div className="display-numbers">
-  <p className="number-header">display </p>
+<p className="number-header"> number of entries</p>
 <NumberOfEvents 
       numberOfEvents={this.state.numberOfEvents}
       updateNumberOfEvents={this.updateNumberOfEvents}
       errorText ={this.state.errorText}/>
-<p className="number-header"> events</p></div>
+</div>
 
-<h2 className="events-city-header">Events in each city</h2>
+
       <EventList events={this.state.events}/>
       <WelcomeScreen showWelcomeScreen={this.state.showWelcomeScreen} getAccessToken={() => { getAccessToken() }} />
     </div>
