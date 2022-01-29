@@ -124,7 +124,7 @@ export class App extends Component {
             </div>
 </div>
 
-      { !navigator.onLine ? (<WarningAlert text='You are in offline mode!' />) : (<WarningAlert text=' ' />)}
+      
       <CitySearch 
       locations={this.state.locations} 
       updateEvents={this.updateEvents}/>
