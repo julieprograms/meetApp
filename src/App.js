@@ -122,20 +122,19 @@ export class App extends Component {
               
             </div>
 </div>
-<h4 className="chart-title">Choose your nearest city</h4>
+
       { !navigator.onLine ? (<WarningAlert text='You are in offline mode!' />) : (<WarningAlert text=' ' />)}
       <CitySearch 
       locations={this.state.locations} 
       updateEvents={this.updateEvents}/>
       
 
-<div className="display-numbers">
-<p className="number-header"> number of entries</p>
+
 <NumberOfEvents 
       numberOfEvents={this.state.numberOfEvents}
       updateNumberOfEvents={this.updateNumberOfEvents}
       errorText ={this.state.errorText}/>
-</div>
+
 
 
       <EventList events={this.state.events}/>

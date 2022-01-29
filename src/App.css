@@ -35,12 +35,34 @@ input[type="number"] {
   font-size: 12px;
   line-height: 20px;
   align-self: center;
-  height: 38px;
+  height: 40px;
   min-width: 20em;
   max-width: 50em;
-  margin-top: 2%;
-  margin-bottom: 2%;
 }
+input[type="text"] {
+  margin-bottom:5%;
+}
+input[type="number"] {
+  max-width: 20em;
+  min-width: 10em;
+  width: 20em;
+  margin-bottom:5%;
+}
+
+.citysearch-label {
+  margin-top: 20%;
+  font-size: 16px;
+  color: #1D4355;
+  font-family: 'Roboto', sans-serif;
+}
+
+.number-label {
+  font-size: 16px;
+  color: #1D4355;
+  font-family: 'Roboto', sans-serif;
+  margin-right:1%;
+}
+
 
 
 .city {
@@ -54,6 +76,7 @@ input[type="number"] {
   max-width: 300px;
   margin: auto;
   position: relative;
+  margin-top: 35%;
 
 }
 
@@ -108,8 +131,8 @@ input[type="number"] {
 }
 
 .numberOfEvents {
-  width: 200px;
-  margin: 20px auto;
+  max-width: 50em;
+  min-width: 20em;
   text-align: center;
 }
 
@@ -156,6 +179,8 @@ input[type="number"] {
     font-family: 'Rubik', sans-serif;
 }
 .chart-title-wrapper {
+  margin-top: 35%;
+  margin-bottom: -7%;
   font-size: 16px;
   color: #1D4355;
   font-family: 'Roboto', sans-serif;
@@ -177,7 +202,7 @@ input[type="number"] {
   font-size:16px;
   color: #1D4355;
   font-family: 'Roboto', sans-serif;
-  margin-bottom:2%;
+  margin-bottom:-4%;
 }
 
 .chart-2 {

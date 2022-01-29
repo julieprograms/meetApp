@@ -7,6 +7,7 @@ export class NumberOfEvents extends Component {
         return(
         <div className="NumberOfEvents">
             <ErrorAlert text={this.props.errorText} />
+            <label className="number-label"> number of entries</label>
             <input type="number" className="number"
             min="1" max="100"
             value={this.props.numberOfEvents} 
