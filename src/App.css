@@ -1,4 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@500&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Rubik&display=swap');
+
 .App {
   text-align: center;
   padding: 2% 5%;
@@ -141,6 +143,7 @@ input[type="number"] {
   color: rgba(6, 81, 143, 0.719);
   color: #1D4355;
   margin-bottom: 5%;
+  font-family: 'Rubik', sans-serif;
 }
 
 .chart-header {
@@ -149,6 +152,7 @@ input[type="number"] {
     color: #1D4355;
     margin-bottom: 15%;
     margin-top: 20%;
+    font-family: 'Rubik', sans-serif;
 }
 .chart-title {
   font-size: 14px;
