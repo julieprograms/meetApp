@@ -1,16 +1,16 @@
 {
   "files": {
-    "main.css": "/meetApp/static/css/main.cf458f3a.css",
+    "main.css": "/meetApp/static/css/main.54ed1491.css",
     "main.js": "/meetApp/static/js/main.5d44cdb5.js",
     "static/js/377.c6d568f6.chunk.js": "/meetApp/static/js/377.c6d568f6.chunk.js",
     "service-worker.js": "/meetApp/service-worker.js",
     "index.html": "/meetApp/index.html",
-    "main.cf458f3a.css.map": "/meetApp/static/css/main.cf458f3a.css.map",
+    "main.54ed1491.css.map": "/meetApp/static/css/main.54ed1491.css.map",
     "main.5d44cdb5.js.map": "/meetApp/static/js/main.5d44cdb5.js.map",
     "377.c6d568f6.chunk.js.map": "/meetApp/static/js/377.c6d568f6.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.cf458f3a.css",
+    "static/css/main.54ed1491.css",
     "static/js/main.5d44cdb5.js"
   ]
 }
