@@ -37,7 +37,7 @@ const getToken = async (code) => {
     .then((res) => {
         return res.json();
     })
-    .catch((error) => error);
+    .catch((error) => console.log(error));
 
     access_token && localStorage.setItem('access_token', access_token);
 
@@ -53,7 +53,7 @@ const removeQuery = () => {
         window.history.pushState('','', newurl);
     } else {
         newurl = window.location.protocol + '//' + window.location.host;
-        window.history.pushStet('','',newurl)
+        window.history.pushState('','',newurl)
     }
 };
 
@@ -69,7 +69,7 @@ export const getEvents = async () => {
     if (!navigator.onLine) {
         const data = localStorage.getItem("lastEvents");
         NProgress.done();
-        return data?JSON.parse(data).events:[];;
+        return data?JSON.parse(data).events:[];
       }
     
     const token = await getAccessToken();

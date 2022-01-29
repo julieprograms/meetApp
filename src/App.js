@@ -71,7 +71,7 @@ export class App extends Component {
   };
 
   updateNumberOfEvents = async (e) => {
-    const newNumber = e.target.value ? parseInt(e.target.value) : 30;
+    const newNumber = e.target.value ? parseInt(e.target.value) : 32;
 
     if(newNumber < 1 || newNumber > 100){
       await this.setState({ 
@@ -98,7 +98,7 @@ export class App extends Component {
   };
 
   render () {
-    if (this.state.showWelcomeScreen === undefined) return <div className="App" />
+    if (this.state.showWelcomeScreen === undefined) {return <div className="App" />}
     return (
     <div className="App">
       <h1 className="page-title">Meet App</h1>

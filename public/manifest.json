@@ -1,6 +1,6 @@
 {
-  "short_name": "React App",
-  "name": "Create React App Sample",
+  "short_name": "Meet App",
+  "name": "Upcoming events world-wide for fullstack developers",
   "icons": [
     {
       "src": "favicon.png",
@@ -23,6 +23,6 @@
   ],
   "start_url": ".",
   "display": "standalone",
-  "theme_color": "#000000",
+  "theme_color": "#1D4355",
   "background_color": "#ffffff"
 }
