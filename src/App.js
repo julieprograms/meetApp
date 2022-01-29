@@ -19,7 +19,7 @@ export class App extends Component {
   state = { 
     events: [],
     locations: [],
-    numberOfEvents: 32,
+    numberOfEvents: 30,
     currentLocation: "all",
     warningText: '',
     showWelcomeScreen: undefined
@@ -71,12 +71,12 @@ export class App extends Component {
   };
 
   updateNumberOfEvents = async (e) => {
-    const newNumber = e.target.value ? parseInt(e.target.value) : 32;
+    const newNumber = e.target.value ? parseInt(e.target.value) : 30;
 
-    if(newNumber < 1 || newNumber > 32){
+    if(newNumber < 1 || newNumber > 100){
       await this.setState({ 
         numberOfEvents: newNumber,
-      errorText: 'Please choose a number between 0 and 32' 
+      errorText: 'Please choose a number between 0 and 100' 
     });
     } else {
       await this.setState({

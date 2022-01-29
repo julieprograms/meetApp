@@ -3,6 +3,7 @@
   text-align: center;
   padding: 2% 5%;
   background-color: rgba(179, 238, 248, 0.13);
+  color: #1D4355;
 }
 
 .App * {
@@ -31,7 +32,7 @@ input[type="number"] {
   padding: 8px 6px 8px 10px;
   border-radius: 4px;
   outline: none;
-  border: 1px solid #ccc;
+  border: 1px solid #1D4355;;
   font-size: 14px;
   line-height: 20px;
   align-self: center;
@@ -141,6 +142,7 @@ input[type="number"] {
 
 .events-city-header {
   color: rgba(6, 81, 143, 0.719);
+  color: #1D4355;
 }
 
 

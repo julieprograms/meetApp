@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@500&display=swap');
+
 .EventList {
 display: inline-grid;
 gap: 2em 2em;
@@ -6,13 +8,15 @@ grid-template-rows: 1fr;
 min-width: 20em;
 max-width: 100%;
 color:rgba(6, 81, 143, 0.719);
+color: #1D4355;
+font-family: 'Roboto', sans-serif;
 }
 
 .event-list {
 min-height: 20em;
 min-width: 100%;
 border-style: none;
-border: 6px solid rgba(6, 81, 143, 0.719);
+border: 6px solid #1D4355;;
 border-radius: 5%;
 }
 
@@ -63,6 +67,7 @@ a {
 h2 {
     font-size:35px;
     color: rgba(6, 81, 143, 0.719);
+    color: #1D4355;
     margin-bottom: 15%;
     margin-top: 20%;
 }
@@ -70,4 +75,5 @@ h2 {
 h1 {
     font-size: 40px;
     color: rgba(6, 81, 143, 0.719);
+    color: #1D4355;
 }
