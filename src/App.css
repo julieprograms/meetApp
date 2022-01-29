@@ -31,7 +31,7 @@ input[type="number"] {
   padding: 8px 6px 8px 10px;
   border-radius: 4px;
   outline: none;
-  border: 1px solid #1D4355;;
+  border: 3px solid #1D4355;;
   font-size: 12px;
   line-height: 20px;
   align-self: center;
@@ -40,6 +40,12 @@ input[type="number"] {
   max-width: 50em;
   margin-top: 2%;
   margin-bottom: 2%;
+}
+
+input[type="number"] {
+  min-width: 10em;
+  max-width:10em;
+
 }
 
 .city {
@@ -143,7 +149,7 @@ input[type="number"] {
   color: rgba(6, 81, 143, 0.719);
   color: #1D4355;
   margin-bottom: 5%;
-  font-family: 'Rubik', sans-serif;
+  font-family: 'Roboto', sans-serif;
 }
 
 .chart-header {
@@ -152,14 +158,15 @@ input[type="number"] {
     color: #1D4355;
     margin-bottom: 15%;
     margin-top: 20%;
-    font-family: 'Rubik', sans-serif;
+    font-family: 'Roboto', sans-serif;
 }
-.chart-title {
+.chart-title-wrapper {
   font-size: 14px;
   color: #1D4355;
   font-family: 'Roboto', sans-serif;
-
 }
+
+
 .see-suggestions-input {
   margin-bottom:2%;
 }
@@ -174,10 +181,14 @@ input[type="number"] {
 .number-header {
   font-size:14px;
   color: #1D4355;
-  
-
- 
+  font-family: 'Roboto', sans-serif;
 }
+
+.chart-2 {
+  margin-top: -5%;
+}
+
+
 
 @media only screen and (min-width: 992px) {
   .data-vis-wrapper {

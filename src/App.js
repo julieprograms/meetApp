@@ -113,7 +113,7 @@ export class App extends Component {
 <div className="data-vis-wrapper">
   
             <EventGenre events={this.state.events} />
-            <h3 className="chart-title">topic genres</h3> 
+       
               <ResponsiveContainer height={400} >
                 <ScatterChart margin={{ top: 20, right: 20, bottom: 20, left: 20 }} >
                   <CartesianGrid />
@@ -123,15 +123,19 @@ export class App extends Component {
                   <Scatter data={this.getData()} fill="#1D4355" />
                 </ScatterChart> 
               </ResponsiveContainer>
-              <h3 className="chart-title">Future events/city</h3>
+              
             </div>
 </div>
-<p className="number-header">display </p>
+
+
+<div className="display-numbers">
+  <p className="number-header">display </p>
 <NumberOfEvents 
       numberOfEvents={this.state.numberOfEvents}
       updateNumberOfEvents={this.updateNumberOfEvents}
       errorText ={this.state.errorText}/>
-<p className="number-header"> events</p>
+<p className="number-header"> events</p></div>
+
 <h2 className="events-city-header">Events in each city</h2>
       <EventList events={this.state.events}/>
       <WelcomeScreen showWelcomeScreen={this.state.showWelcomeScreen} getAccessToken={() => { getAccessToken() }} />
