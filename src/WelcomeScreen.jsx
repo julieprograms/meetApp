@@ -5,8 +5,8 @@ export function WelcomeScreen(props) {
   return props.showWelcomeScreen ?
     (
       <div className="WelcomeScreen">
+        <div className="welcome-header-wrapper"><h4 className="welcome_message">Hello!</h4><h3 className="welcome_message welcome-subtitle">See upcoming events around the world for Full Stack Developers</h3></div>
         
-        <h4 className="welcome_message">Hello! Log in to see upcoming events around the world for Full Stack Developers</h4>
         <div className="button_cont" align="center">
           <div class="google-btn">
             <div class="google-icon-wrapper">
@@ -25,14 +25,15 @@ export function WelcomeScreen(props) {
             >
               <b>Sign in with Google</b>
             </button>
-          </div>
+          
         </div>
-        <a
+        <div className="privacy-link"><a
+        
           href="https://julieprograms.github.io/meetApp/privacy.html"
           rel="nofollow noopener"
         >
           Privacy policy
-        </a>
+        </a></div> </div>
       </div>
     ) : null;
 }
