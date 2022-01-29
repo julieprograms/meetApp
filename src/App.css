@@ -43,10 +43,9 @@ input[type="text"] {
   margin-bottom:5%;
 }
 input[type="number"] {
-  max-width: 20em;
-  min-width: 10em;
-  width: 20em;
-  margin-bottom:5%;
+  max-width: 12em;
+  min-width: 5em;
+  margin-bottom:8%;
 }
 
 .citysearch-label {
