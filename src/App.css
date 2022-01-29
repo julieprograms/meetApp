@@ -140,6 +140,7 @@ input[type="number"] {
 .events-city-header {
   color: rgba(6, 81, 143, 0.719);
   color: #1D4355;
+  margin-bottom: 5%;
 }
 
 .chart-header {
@@ -153,7 +154,6 @@ input[type="number"] {
   font-size: 14px;
   color: #1D4355;
   font-family: 'Roboto', sans-serif;
-  margin-bottom: 5%;
 
 }
 .see-suggestions-input {
@@ -161,10 +161,18 @@ input[type="number"] {
 }
 
 .page-title {
-  font-size:30px;
+  font-size:45px;
   color: #1D4355;
-  margin-bottom:10%;
+  margin-bottom:15%;
   margin-top:5%;
+}
+
+.number-header {
+  font-size:14px;
+  color: #1D4355;
+  
+
+ 
 }
 
 @media only screen and (min-width: 992px) {
@@ -173,7 +181,7 @@ input[type="number"] {
   }
   .data-vis-wrapper .recharts-responsive-container {
     flex-basis: 50%;
-    max-width: 50%;
+    max-width: 100%;
     min-width: auto;
     margin: 0 auto;
   }

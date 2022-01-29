@@ -107,10 +107,7 @@ export class App extends Component {
       <CitySearch 
       locations={this.state.locations} 
       updateEvents={this.updateEvents}/>
-      <NumberOfEvents 
-      numberOfEvents={this.state.numberOfEvents}
-      updateNumberOfEvents={this.updateNumberOfEvents}
-      errorText ={this.state.errorText}/>
+      
 <h3 className="chart-header">Breakdown of future events</h3>
 <div className="chart-2">
 <div className="data-vis-wrapper">
@@ -124,11 +121,18 @@ export class App extends Component {
                   <YAxis allowDecimals={false} tick={{ fill: "#000000" }} type="number" dataKey="number" name="number of events" />
                   <Tooltip cursor={{ strokeDasharray: '3 3' }} />
                   <Scatter data={this.getData()} fill="#1D4355" />
-                </ScatterChart>
-                <h3 className="chart-title">Future events/city</h3>
+                </ScatterChart> 
               </ResponsiveContainer>
+              <h3 className="chart-title">Future events/city</h3>
             </div>
-</div><h2 className="events-city-header">Events in each city</h2>
+</div>
+<p className="number-header">display </p>
+<NumberOfEvents 
+      numberOfEvents={this.state.numberOfEvents}
+      updateNumberOfEvents={this.updateNumberOfEvents}
+      errorText ={this.state.errorText}/>
+<p className="number-header"> events</p>
+<h2 className="events-city-header">Events in each city</h2>
       <EventList events={this.state.events}/>
       <WelcomeScreen showWelcomeScreen={this.state.showWelcomeScreen} getAccessToken={() => { getAccessToken() }} />
     </div>
