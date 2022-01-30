@@ -5,7 +5,8 @@ import { EventList } from './EventList';
 import { EventGenre } from './EventGenre';
 import { CitySearch } from './CitySearch';
 import { NumberOfEvents } from './NumberOfEvents';
-import { extractLocations, getEvents } from './api';
+import { WelcomeScreen } from './WelcomeScreen';
+import { extractLocations, getEvents, checkToken, getAccessToken } from './api';
 import { WarningAlert } from './Alert';
 import { ScatterChart, Scatter, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer } from 'recharts';
 
@@ -18,20 +19,27 @@ export class App extends Component {
     locations: [],
     numberOfEvents: 32,
     currentLocation: "all",
-    warningText: ''
+    warningText: '',
+    showWelcomeScreen: undefined
   };
   
-  componentDidMount() {
+  async componentDidMount() {
     this.mounted = true;
-    getEvents().then((events) => {
-      if (this.mounted) {
-        this.setState({ 
-          events: events.slice(0, this.state.numberOfEvents),
-          locations: extractLocations(events) 
-        });
-      }
-    });
-  }
+    const accessToken = localStorage.getItem('access_token');
+    const isTokenValid = (await checkToken(accessToken)).error ? false : true;
+    const searchParams = new URLSearchParams(window.location.search);
+    const code = searchParams.get('code');
+    this.setState({ showWelcomeScreen: !(code || isTokenValid) });
+    if (code || (isTokenValid && this.mounted)) {
+      getEvents().then((events) => {
+        if (this.mounted) {
+          this.setState({ 
+            events: events,
+          locations: extractLocations(events) });
+        }
+      });
+    }}
+
 
   componentWillUnmount(){
     this.mounted = false;
@@ -49,7 +57,6 @@ export class App extends Component {
         events: eventsToShow,
         currentLocation: location
         });
-      
       }     
     });
   };
@@ -82,6 +89,8 @@ export class App extends Component {
   };
 
   render () {
+    if (this.state.showWelcomeScreen === undefined) return <div className="App" />
+
     return (
       <div className="App">
         <h1 className="page-title">Meet App</h1>
@@ -123,6 +132,7 @@ export class App extends Component {
   
   
         <EventList events={this.state.events}/>
+        <WelcomeScreen showWelcomeScreen={this.state.showWelcomeScreen} getAccessToken={() => { getAccessToken() }} />
     </div>
   );
   }

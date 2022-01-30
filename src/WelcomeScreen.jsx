@@ -5,7 +5,10 @@ export function WelcomeScreen(props) {
   return props.showWelcomeScreen ?
     (
       <div className="WelcomeScreen">
-        <div className="welcome-header-wrapper"><h4 className="welcome_message">Hello!</h4><h3 className="welcome_message welcome-subtitle">See upcoming events around the world for Full Stack Developers</h3></div>
+        <div className="welcome-header-wrapper">
+            <h4 className="welcome_message">Hello!</h4>
+            <h3 className="welcome_message welcome-subtitle">See upcoming events around the world for Full Stack Developers</h3>
+            </div>
         
         <div className="button_cont" align="center">
           <div class="google-btn">
