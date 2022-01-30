@@ -93,20 +93,22 @@ input[type="number"] {
 
 .suggestions {
   width: 250px;
-  position: absolute;
-  z-index: 2;
+  z-index: 3;
   align-self: center;
   margin: 0;
-  top: 43px;
+  position: absolute;
+  bottom: 40px;
+  padding-top: 3%;
+  max-height: 200px;
+  overflow-y: scroll;
   font-size: 14px;
-  box-shadow: 10px 10px 16px 1px rgba(0, 0, 0, 0.75);
-
+  box-shadow: 10px 10px 16px -12px rgba(0, 0, 0, 0.247);
 }
 
 .suggestions > li {
   text-align: left;
   padding: 8px 6px 8px 10px;
-  background-color: #eee;
+  background-color: rgb(236 249 251);
   cursor: default;
 
 
