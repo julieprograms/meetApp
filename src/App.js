@@ -20,11 +20,19 @@ export class App extends Component {
     numberOfEvents: 32,
     currentLocation: "all",
     warningText: '',
-    showWelcomeScreen: undefined
+    showWelcomeScreen: undefined, 
+    isOnline: true
   };
   
   async componentDidMount() {
     this.mounted = true;
+    // testing:
+    // getEvents().then((events) => {
+      //if (this.mounted) {
+//  this.setState({ events, locations:extractLocations(events) })
+    //  }
+    // });
+    //live:
     const accessToken = localStorage.getItem('access_token');
     const isTokenValid = (await checkToken(accessToken)).error ? false : true;
     const searchParams = new URLSearchParams(window.location.search);
@@ -38,7 +46,12 @@ export class App extends Component {
           locations: extractLocations(events) });
         }
       });
-    }}
+    } if (!navigator.onLine) {
+      this.setState({
+        isOnline: false,
+      });
+    }
+  }
 
 
   componentWillUnmount(){
@@ -46,20 +59,20 @@ export class App extends Component {
   }
   
 
-  updateEvents = (location, eventCount) => {
+  updateEvents = (location, eventCount = this.state.numberOfEvents) => {
+    this.setState({ isOnline: navigator.onLine ? true: false });
     getEvents().then((events) => {
-      const locationEvents = (location === "all") 
+      const locationEvents = !location 
       ? events
       : events.filter((event) => event.location === location);
-      const eventsToShow= locationEvents.slice(0, this.state.numberOfEvents);
-      if( this.mounted){
-        this.setState({
-        events: eventsToShow,
+      this.setState({
+        events: locationEvents.slice(0, eventCount),
+        location: location,
         currentLocation: location
-        });
-      }     
-    });
-  };
+      });
+        });    
+    };
+  
 
   updateNumberOfEvents = async (e) => {
     const newNumber = e.target.value ? parseInt(e.target.value) : 32;
@@ -78,6 +91,7 @@ export class App extends Component {
     } 
   };
 
+  //get data for scatterplot graph:
   getData = () => {
     const {locations, events} = this.state;
     const data = locations.map((location)=>{
@@ -89,15 +103,14 @@ export class App extends Component {
   };
 
   render () {
-    if (this.state.showWelcomeScreen === undefined) return <div className="App" />
-
-    return (
+    if (this.state.showWelcomeScreen === undefined) {return <div className="App" />}
+    if (this.state.showWelcomeScreen === false) {
+      return (
       <div className="App">
         <h1 className="page-title">Meet App</h1>
         <p className="page-subtitle">meet people like you talking about stuff you care about!</p>
         { !navigator.onLine ? (<WarningAlert text='You are in offline mode!' />) : (<WarningAlert text=' ' />)}
-        
-  <h3 className="chart-header">Breakdown of future events</h3>
+        <h3 className="chart-header">Breakdown of future events</h3>
   
   <div className="chart-2">
   <div className="data-vis-wrapper">
@@ -114,27 +127,26 @@ export class App extends Component {
                   </ScatterChart> 
                 </ResponsiveContainer>
                 
-              </div>
-  </div>
-  
-        
+              </div>  </div>
+
         <CitySearch 
         locations={this.state.locations} 
         updateEvents={this.updateEvents}/>
         
-  
-  
   <NumberOfEvents 
         numberOfEvents={this.state.numberOfEvents}
         updateNumberOfEvents={this.updateNumberOfEvents}
         errorText ={this.state.errorText}/>
   
-  
-  
         <EventList events={this.state.events}/>
+        </div>
+      )}
+      if (this.state.showWelcomeScreen === true) {
+        return (
+        <div className="App">
         <WelcomeScreen showWelcomeScreen={this.state.showWelcomeScreen} getAccessToken={() => { getAccessToken() }} />
-    </div>
-  );
+        </div> );
+      }
   }
 }
 
