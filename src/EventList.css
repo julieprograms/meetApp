@@ -3,7 +3,9 @@
 
 .EventList {
 display: inline-grid;
-gap: 2em 2em;
+align-items: center;
+justify-items: center;
+row-gap: 2em;
 grid-template-columns: 1fr;
 grid-template-rows: 1fr;
 min-width: 20em;
