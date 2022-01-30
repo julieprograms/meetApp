@@ -5,6 +5,7 @@
 display: inline-grid;
 align-items: center;
 justify-items: center;
+text-align: center;
 row-gap: 2em;
 grid-template-columns: 1fr;
 grid-template-rows: 1fr;

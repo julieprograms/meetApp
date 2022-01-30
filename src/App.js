@@ -85,6 +85,7 @@ export class App extends Component {
     return (
       <div className="App">
         <h1 className="page-title">Meet App</h1>
+        <p className="page-subtitle">meet people like you talking about stuff you care about!</p>
         { !navigator.onLine ? (<WarningAlert text='You are in offline mode!' />) : (<WarningAlert text=' ' />)}
         
   <h3 className="chart-header">Breakdown of future events</h3>
