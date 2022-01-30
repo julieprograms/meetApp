@@ -97,7 +97,7 @@ input[type="number"] {
   align-self: center;
   margin: 0;
   position: absolute;
-  bottom: 40px;
+  bottom: 60px;
   padding-top: 3%;
   max-height: 200px;
   overflow-y: scroll;
