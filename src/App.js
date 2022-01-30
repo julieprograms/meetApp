@@ -42,7 +42,7 @@ export class App extends Component {
       getEvents().then((events) => {
         if (this.mounted) {
           this.setState({ 
-            events: events,
+            events: events.slice(0, this.state.numberOfEvents),
           locations: extractLocations(events) });
         }
       });
@@ -62,34 +62,36 @@ export class App extends Component {
   updateEvents = (location, eventCount = this.state.numberOfEvents) => {
     this.setState({ isOnline: navigator.onLine ? true: false });
     getEvents().then((events) => {
-      const locationEvents = !location 
+      const locationEvents = (location === 'all') 
       ? events
       : events.filter((event) => event.location === location);
-      this.setState({
+      if(this.mounted) {
+        this.setState({
         events: locationEvents.slice(0, eventCount),
         location: location,
         currentLocation: location
       });
+      }
         });    
     };
   
-
-  updateNumberOfEvents = async (e) => {
-    const newNumber = e.target.value ? parseInt(e.target.value) : 32;
-
-    if(newNumber < 1 || newNumber > 32){
-      await this.setState({ 
-        numberOfEvents: newNumber,
-      errorText: 'Please choose a number between 0 and 32' 
-    });
-    } else {
-      await this.setState({
-        errorText:'',
-        numberOfEvents: newNumber
+    updateNumberOfEvents = async (e) => {
+      const newNumber = e.target.value ? parseInt(e.target.value) : 100;
+  
+      if(newNumber < 1 || newNumber > 100){
+        await this.setState({ 
+          numberOfEvents: newNumber,
+        errorText: 'Please choose a number between 0 and 100' 
       });
-      this.updateEvents(this.state.currentLocation, this.state.numberOfEvents);
-    } 
-  };
+      } else {
+        await this.setState({
+          errorText:'',
+          numberOfEvents: newNumber
+        });
+        this.updateEvents(this.state.currentLocation, this.state.numberOfEvents);
+      } 
+    };
+  
 
   //get data for scatterplot graph:
   getData = () => {
